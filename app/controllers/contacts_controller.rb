@@ -3,9 +3,9 @@ class ContactsController < ApplicationController
         if current_user.role == "Designer"
             @user = User.find(current_user.id)
             @user_contacts = @user.contacts
-            @partnership = Partnership.new
+            @partnership = Partnership.new(user: @user)
         else
-            @contacts = Contact.all
+            @user_contacts = Contact.all
         end
     end
 

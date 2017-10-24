@@ -5,11 +5,11 @@
 
 <% if current_user.role == "Designer" %>
 
-    <%= form_for [@user, @user_partnerships] do |f| %>
+    <%= form_for @partnership do |f| %>
 
-    
-    
-    
+    <%= f.label :contact %>
+    <%= f.collection_select :contact_id, Contact.all, :id, :company  %>
+
     <%= f.submit %>
     <% end %>
 

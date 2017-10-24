@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  resources :partnerships
+
   delete '/logout', to: 'sessions#destroy'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
