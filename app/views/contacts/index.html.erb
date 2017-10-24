@@ -1,5 +1,18 @@
-<% @contacts.each do |contact| %>
+<% @user_contacts.each do |contact| %>
 <%= link_to contact.contact_name, contact_path(contact) %>
 <% end %>
 
-<%= link_to "New Contact", new_contact_path %>
+
+<% if current_user.role == "Designer" %>
+
+    <%= form_for [@user, @user_partnerships] do |f| %>
+
+    
+    
+    
+    <%= f.submit %>
+    <% end %>
+
+<% else %>
+    <%= link_to "New Contact", new_contact_path %>
+<% end %>
