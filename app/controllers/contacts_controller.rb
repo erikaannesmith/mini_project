@@ -1,11 +1,11 @@
 class ContactsController < ApplicationController
     def index
         if current_user.role == "Designer"
-            @user = User.find(current_user.id)
+            @user = current_user
             @user_contacts = @user.contacts
-            @partnership = Partnership.new(user: @user)
+            @partnership = Partnership.new
         else
-            @user_contacts = Contact.all
+            @contacts = Contact.all
         end
     end
 
@@ -44,4 +44,5 @@ class ContactsController < ApplicationController
     def contact_params
         params.require(:contact).permit(:company, :contact_name, :location, :phone_number, :email, :industry)
     end
+
 end

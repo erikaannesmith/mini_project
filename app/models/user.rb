@@ -5,4 +5,5 @@ class User < ApplicationRecord
   has_many :designs
   has_many :partnerships
   has_many :contacts, through: :partnerships
+  enum role: ["default", "admin"]
 end

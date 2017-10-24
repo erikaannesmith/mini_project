@@ -1,5 +1,5 @@
 class AddRoleColumnToUser < ActiveRecord::Migration[5.1]
   def change
-    add_column :users, :role, :string, :default => "Designer"
+    add_column :users, :role, :integer, null: false, default: 0
   end
 end

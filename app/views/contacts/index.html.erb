@@ -1,11 +1,11 @@
-<% @user_contacts.each do |contact| %>
-<%= link_to contact.contact_name, contact_path(contact) %>
-<% end %>
 
-
+New Contact:
 <% if current_user.role == "Designer" %>
 
-    <%= form_for @partnership do |f| %>
+    <%= form_for [@user, @partnership] do |f| %>
+
+    <%= f.label :user %>
+    <%= f.text_field :user, :value => @user.email, :disabled=> true %>
 
     <%= f.label :contact %>
     <%= f.collection_select :contact_id, Contact.all, :id, :company  %>
@@ -15,4 +15,9 @@
 
 <% else %>
     <%= link_to "New Contact", new_contact_path %>
+<% end %>
+
+<h1>Contacts:</h1>
+<% @user_contacts.each do |contact| %>
+<%= link_to contact.contact_name, contact_path(contact) %>
 <% end %>
