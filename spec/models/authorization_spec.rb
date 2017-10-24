@@ -6,10 +6,10 @@ describe User do
                            password: "123",
                            company_name: "Yas",
                            website: "www.yas.com",
-                           location: "YASland",
-                           role: 0)
-                           
+                           location: "YASland")
+
         expect(user).to be_valid
         expect(user.role).to eq("default")
     end
+
 end
