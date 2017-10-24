@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024004124) do
+ActiveRecord::Schema.define(version: 20171024020520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "company"
+    t.string "contact_name"
+    t.string "location"
+    t.string "email"
+    t.string "phone_number"
+    t.string "industry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "designs", force: :cascade do |t|
     t.string "name"
@@ -21,6 +32,13 @@ ActiveRecord::Schema.define(version: 20171024004124) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_designs_on_user_id"
+  end
+
+  create_table "partnerships", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "contact_id"
+    t.index ["contact_id"], name: "index_partnerships_on_contact_id"
+    t.index ["user_id"], name: "index_partnerships_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,4 +52,6 @@ ActiveRecord::Schema.define(version: 20171024004124) do
   end
 
   add_foreign_key "designs", "users"
+  add_foreign_key "partnerships", "contacts"
+  add_foreign_key "partnerships", "users"
 end

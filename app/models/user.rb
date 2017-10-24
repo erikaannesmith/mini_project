@@ -3,4 +3,6 @@ class User < ApplicationRecord
   validates :email, :location, :company_name, :website, presence: true
   validates_uniqueness_of :email, :company_name, :website
   has_many :designs
+  has_many :partnerships
+  has_many :contacts, through: :partnerships
 end
