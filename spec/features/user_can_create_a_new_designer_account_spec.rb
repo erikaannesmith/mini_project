@@ -4,10 +4,14 @@ describe "User can create a new designer account" do
   scenario "user visits root page" do
     visit "/"
 
-    expect(current_path).to eq(root_path)
-    # expect(page).to have_field("session[email]")
-    # expect(page).to have_field("session[password]")
-    # expect(page).to have_button("Log In")
+    expect(page).to have_button("Log In")
+    expect(page).to have_field("session[email]")
+    expect(page).to have_field("session[password]")
+
+    click_on "Register"
+
+    expect(current_path).to eq(new_user_path)
+
     expect(page).to have_content("Register:")
     expect(page).to have_field("user[email]")
     expect(page).to have_field("user[password]")
@@ -18,6 +22,8 @@ describe "User can create a new designer account" do
 
   scenario "user creates an account" do
     visit "/"
+
+    click_on "Register"
 
     fill_in "user[email]", with: "test@test.com"
     fill_in "user[password]", with: "test"
@@ -34,8 +40,6 @@ describe "User can create a new designer account" do
     user = User.create(email: "x", password: "x", location: "x", company_name:"x", website: "x")
 
     visit "/"
-
-    click_on "Log In"
 
     expect(page).to have_field("session[email]")
     expect(page).to have_field("session[password]")
