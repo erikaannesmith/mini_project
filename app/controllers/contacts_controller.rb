@@ -1,6 +1,12 @@
 class ContactsController < ApplicationController
     def index
-        @contacts = Contact.all
+        if current_user.role == "Designer"
+            @user = User.find(current_user.id)
+            @user_contacts = @user.contacts
+            @partnership = Partnership.new
+        else
+            @contacts = Contact.all
+        end
     end
 
     def show
