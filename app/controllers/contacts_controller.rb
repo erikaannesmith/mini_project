@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
             @user_contacts = @user.contacts
             @partnership = Partnership.new(user: @user)
         else
-            @user_contacts = Contact.all
+            @contacts = Contact.all
         end
     end
 
