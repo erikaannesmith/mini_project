@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  namespace :admin do
+    resources :contacts
+    # resources :partnerships, only: [:index]
+    # resources :users
+  end
+
   resources :partnerships
 
   delete '/logout', to: 'sessions#destroy'
