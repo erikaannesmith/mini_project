@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :contacts, only: [:index]
+    resources :contacts
+    # resources :partnerships, only: [:index]
+    # resources :users
   end
 
   resources :partnerships

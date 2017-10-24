@@ -1,1 +1,9 @@
 <h1>All Contacts</h1>
+<ul>
+<% @contacts.each do |contact| %>
+<li>
+<%= link_to "#{contact.contact_name} @ #{contact.company}", contact_path(contact) %>
+</li>
+<% end %>
+
+</ul>
