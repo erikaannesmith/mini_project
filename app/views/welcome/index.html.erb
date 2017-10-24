@@ -1,0 +1,22 @@
+Register:
+
+<%= form_for @user do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+
+  <%= f.label :company_name %>
+  <%= f.text_field :company_name %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+
+  <%= f.label :website %>
+  <%= f.text_field :website %>
+
+  <%= f.submit "Submit" %>
+<% end %>
+
+<%= link_to "Log In", login_path %>
