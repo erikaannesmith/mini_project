@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20171024023942) do
     t.string "company_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "role", default: "Designer"
+    t.integer "role", default: 0, null: false
   end
 
   add_foreign_key "designs", "users"
