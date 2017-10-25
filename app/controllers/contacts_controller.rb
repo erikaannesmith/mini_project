@@ -1,12 +1,8 @@
 class ContactsController < ApplicationController
     def index
-        if current_user.role == "Designer"
             @user = current_user
             @user_contacts = @user.contacts
             @partnership = Partnership.new
-        else
-            @contacts = Contact.all
-        end
     end
 
     def show
@@ -21,7 +17,7 @@ class ContactsController < ApplicationController
         @contact = Contact.new(contact_params)
         if @contact.save
             flash[:success] = "Success"
-            redirect_to contacts_path
+            redirect_to user_contacts_path(current_user)
         else
             render :new
         end

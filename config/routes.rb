@@ -7,17 +7,20 @@ Rails.application.routes.draw do
     resources :designs
   end
 
-  resources :contacts do
-    resources :users
-  end
+  # resources :contacts do
+  #   resources :users
+  # end
 
   namespace :admin do
-    resources :contacts
-    # resources :partnerships, only: [:index]
-    # resources :users
+    resources :contacts do 
+      resources :partnerships, only: [:index]
+      resources :users, only: [:index, :show, :destroy]
+    end
   end
 
-  resources :partnerships
+  # resources :partnerships
+
+  # get '/admin' to: 'admin#index' #dahsboard
 
   delete '/logout', to: 'sessions#destroy'
   get '/login', to: 'sessions#new'

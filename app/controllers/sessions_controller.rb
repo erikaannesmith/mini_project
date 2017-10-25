@@ -7,9 +7,13 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      redirect_to user_path(user)
+      if user.admin?
+        redirect_to admin_dashboard_path(user)
+      else
+        redirect_to user_path(user)
+      end
     else
-      render :new
+      redirect_to root_path
     end
   end
 
