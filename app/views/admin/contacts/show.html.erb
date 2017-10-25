@@ -1,11 +1,13 @@
-<h1>Company: <%= @contact.company %></h1>
+<h1>Company: <%= @contact.company %></h1></br>
 
-Contact Name: <%= @contact.contact_name %>
+Contact Name: <%= @contact.contact_name %></br>
 
-Location: <%= @contact.location %>
+Location: <%= @contact.location %></br>
 
-Phone Number: <%= @contact.phone_number %>
+Phone Number: <%= @contact.phone_number %></br>
 
-E-mail: <%= @contact.email %>
+E-mail: <%= @contact.email %></br>
 
-Industry: <%= @contact.industry %>
+Industry: <%= @contact.industry %></br>
+
+<%= link_to "Edit Contact", edit_admin_contact_path %>

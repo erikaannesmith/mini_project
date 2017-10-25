@@ -1,0 +1,10 @@
+<%= link_to "Dashboard", admin_dashboard_index_path %>
+<%= link_to "All Contacts", admin_contacts_path %>
+<%= link_to "All Designers", users_path %>
+<%= link_to "Log Out", logout_path, method: :delete %>
+
+<h1>All Partnerships:</h1>
+<% @partnerships.each do |partnership| %>
+    <%= link_to "#{partnership.user.company_name}", user_path(current_user) %> and <%= link_to "#{partnership.contact.company}", admin_contact_path(partnership.contact) %>    
+<% end %>
+

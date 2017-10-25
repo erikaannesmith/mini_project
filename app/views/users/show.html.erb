@@ -1,12 +1,14 @@
-<h1>Welcome, <%= current_user.email %>!</h1>
+<%= link_to "Dashboard", admin_dashboard_index_path %>
+<%= link_to "All Partnerships", admin_partnerships_path %>
+<%= link_to "All Contacts", admin_contacts_path %>
+<%= link_to "All Designers", users_path %>
+<%= link_to "Log Out", logout_path, method: :delete %>
+</br>
 
-<% if current_user.default? %>
-    <p><%= link_to "Portfolio", user_designs_path(current_user) %></p>
-    <p><%= link_to "Contacts", user_contacts_path(current_user) %></p>
-<% else %>
-    <p><%= link_to "All Designers", users_path %></p>
 
 
-<% end %>
-    
-<p><%= link_to "Log Out", logout_path, method: :delete %></p>
+Company: <%= @user.company_name %></br>
+Email: <%= @user.email %></br>
+Location: <%= @user.location %></br>
+Website: <%= @user.website %></br>
+
