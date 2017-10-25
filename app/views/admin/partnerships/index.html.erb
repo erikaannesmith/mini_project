@@ -1,0 +1,4 @@
+<h1>All Partnerships:</h1>
+<% @partnerships.each do |partnership| %>
+    <%= partnership.user.company_name %> and <%= partnership.contact.company %>    
+<% end %>
