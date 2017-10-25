@@ -1,7 +1,7 @@
 
-New Contact:
-<% if current_user.role == "Designer" %>
+<% if current_user.default? %>
 
+New Contact:
     <%= form_for [@user, @partnership] do |f| %>
 
     <%= f.label :user %>
@@ -13,8 +13,8 @@ New Contact:
     <%= f.submit %>
     <% end %>
 
-<% else %>
-    <%= link_to "New Contact", new_contact_path %>
+<% elsif current_user.admin? %>
+    <%= link_to "New Contact", new_admin_contact_path %>
 <% end %>
 
 <h1>Contacts:</h1>
