@@ -8,6 +8,17 @@ RSpec.describe "Users can log in as admin" do
                                 website: "www.allsaints.com",
                                 location: "London",
                                 role: 1)
+        @user = User.create(email: "abc",
+                        password: "123",
+                        company_name: "Yas",
+                        website: "www.yas.com",
+                        location: "YASland")
+        @contact = Contact.create(company: "LuluLemon",
+                               contact_name: "Cindy",
+                               location: "New York",
+                               phone_number: "4044044404",
+                               email: "cindy@lululemon.com",
+                               industry: "Retailer")
 
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin_user)
     end
@@ -55,10 +66,16 @@ RSpec.describe "Users can log in as admin" do
 
         expect(current_path).to eq(admin_dashboard_index_path)
 
+        partnership = Partnership.create!(user: @user, contact: @contact)
+
         click_on "All Partnerships"
 
         expect(current_path).to eq(admin_partnerships_path)
-        expect(page).to have_content
+        expect(page).to have_content("#{partnership.user.company_name} and #{partnership.contact.company}")
+        expect(page).to have_link("Dashboard")
+        expect(page).to have_link("All Contacts")
+        expect(page).to have_link("All Designers")
+        expect(page).to have_link("Log Out")
     end
 
 
