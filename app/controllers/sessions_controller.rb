@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       if user.admin?
         redirect_to admin_dashboard_index_path
       else
-        redirect_to user_path(user)
+        redirect_to user_dashboard_index_path(user)
       end
     else
       redirect_to root_path
