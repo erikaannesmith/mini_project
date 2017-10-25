@@ -12,9 +12,8 @@ class Admin::ContactsController < Admin::BaseController
     def create
         @contact = Contact.new(contact_params)
         if @contact.save
-            # flash[:success]
             flash[:success] = "You created #{@contact.contact_name} at #{@contact.company}!"
-            redirect_to admin_contacts_path
+            redirect_to "/"
         else
             flash[:alert] = "#{@contact.contact_name} at #{@contact.company} already exists!"            
             render :new
@@ -26,11 +25,18 @@ class Admin::ContactsController < Admin::BaseController
     end
 
     def edit
-        
+        @contact = Contact.find(params[:id])
     end
 
     def update
-        
+        @contact = Contact.find(params[:id])
+        @contact.update(contact_params)
+        if @contact.save
+            flash[:success] = "#{@contact.contact_name} updated!"
+            redirect_to admin_contact_path(@contact)
+        else
+            redirect_to admin_contacts_path
+        end
     end
 
     def destroy

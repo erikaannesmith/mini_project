@@ -2,8 +2,10 @@
 <ul>
 <% @contacts.each do |contact| %>
 <li>
-<%= link_to "#{contact.contact_name} @ #{contact.company}", contact_path(contact) %>
+<%= link_to "#{contact.contact_name} @ #{contact.company}", admin_contact_path(contact) %>
 </li>
 <% end %>
 
 </ul>
+
+<%= link_to "New Contact", new_admin_contact_path %>

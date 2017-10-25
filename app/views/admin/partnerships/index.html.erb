@@ -5,6 +5,6 @@
 
 <h1>All Partnerships:</h1>
 <% @partnerships.each do |partnership| %>
-    <%= partnership.user.company_name %> and <%= partnership.contact.company %>    
+    <%= link_to "#{partnership.user.company_name}", user_path(current_user) %> and <%= link_to "#{partnership.contact.company}", admin_contact_path(partnership.contact) %>    
 <% end %>
 
