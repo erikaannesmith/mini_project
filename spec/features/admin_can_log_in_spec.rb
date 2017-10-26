@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users can log in as admin" do 
+RSpec.describe "admin authorization" do 
     before :each do 
         @admin_user = User.create(email: "Lola@allsaints.com",
                                 password: "password",
