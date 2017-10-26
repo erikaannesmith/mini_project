@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :partnerships, only: [:index]
     resources :dashboard, only: [:index]
-    resources :contacts do 
-      resources :users, only: [:index, :show, :destroy]
-    end
+    resources :contacts 
+    resources :users, only: [:index, :show, :destroy]
   end
 
   resources :users do
