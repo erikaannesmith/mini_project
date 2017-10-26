@@ -1,6 +1,12 @@
+<%= link_to "Dashboard", admin_dashboard_index_path %>
+<%= link_to "All Partnerships", admin_partnerships_path %>
+<%= link_to "All Contacts", admin_contacts_path %>
+<%= link_to "All Designers", admin_users_path %>
+<%= link_to "Log Out", logout_path, method: :delete %>
+
 <h1>New Contact</h1>
 
-<%= form_for [@admin, @contact] do |f|%>
+<%= form_for(([@admin, @contact]), url: admin_contacts_path) do |f|%>
     <%= f.label :company %>
     <%= f.text_field :company %> 
 

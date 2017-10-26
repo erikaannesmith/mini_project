@@ -50,6 +50,6 @@ describe "User can create a new designer account" do
 
     click_button "Log In"
 
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(user_dashboard_index_path(user))
   end
 end

@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   root "welcome#index"
 
+
+  namespace :admin do
+    resources :partnerships, only: [:index]
+    resources :dashboard, only: [:index]
+    resources :contacts 
+    resources :users, only: [:index, :show, :destroy]
+  end
+
   resources :users do
     resources :dashboard, only: [:index]
     resources :partnerships, only: [:create]
@@ -12,13 +20,6 @@ Rails.application.routes.draw do
   #   resources :users
   # end
 
-  namespace :admin do
-    resources :partnerships, only: [:index]
-    resources :dashboard, only: [:index]
-    resources :contacts do 
-      resources :users, only: [:index, :show, :destroy]
-    end
-  end
 
   # resources :partnerships
 

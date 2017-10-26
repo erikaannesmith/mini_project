@@ -13,7 +13,7 @@ class Admin::ContactsController < Admin::BaseController
         @contact = Contact.new(contact_params)
         if @contact.save
             flash[:success] = "You created #{@contact.contact_name} at #{@contact.company}!"
-            redirect_to "/"
+            redirect_to admin_contacts_path
         else
             flash[:alert] = "#{@contact.contact_name} at #{@contact.company} already exists!"            
             render :new
@@ -40,7 +40,10 @@ class Admin::ContactsController < Admin::BaseController
     end
 
     def destroy
-        
+        @contact = Contact.find(params[:id])
+        @contact.destroy
+        flash[:success] = "#{@contact.contact_name} has been deleted!"
+        redirect_to admin_contacts_path
     end
 
     private

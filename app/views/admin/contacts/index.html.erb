@@ -1,8 +1,15 @@
+<%= link_to "Dashboard", admin_dashboard_index_path %>
+<%= link_to "All Partnerships", admin_partnerships_path %>
+<%= link_to "All Designers", admin_users_path %>
+<%= link_to "Log Out", logout_path, method: :delete %>
+
 <h1>All Contacts</h1>
 <ul>
 <% @contacts.each do |contact| %>
 <li>
 <%= link_to "#{contact.contact_name} @ #{contact.company}", admin_contact_path(contact) %>
+<%= link_to "Edit", edit_admin_contact_path(contact) %>
+<%= link_to "Delete", admin_contact_path(contact), method: "delete" %>
 </li>
 <% end %>
 
