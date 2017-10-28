@@ -7,10 +7,10 @@
     <%= link_to "#{p.contact.contact_name} @ #{p.contact.company}", user_contact_path(current_user, p.contact) %>
 <% end %>
 
-<%= form_for user_partnerships_path(current_user) do |f| %>
+<%= form_for([current_user, @partnership]) do |f| %>
 
     <%= f.label :contact %>
-    <%= f.collection_select :contact_id, Contact.all, :id, :contact_name %>
-    <%= f.submit "Create Partnership" %>
+     <%= f.collection_select :contact_id, Contact.all, :id, :contact_name %>
+     <%= f.submit "Create Partnership" %>
 
 <% end %>

@@ -17,8 +17,8 @@ describe "User can view their show page as dashboard" do
   end
 
   it "shows a link to the users portfolio on dashboard" do
-    @user.designs.create(name: "hi")
-    @user.designs.create(name: "123")
+    @user.designs.create(name: "hi", description: "yes")
+    @user.designs.create(name: "123", description: "no")
 
     expect(page).to have_link("Portfolio")
 

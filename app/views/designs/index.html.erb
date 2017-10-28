@@ -1,4 +1,17 @@
-Designs:
-<% @designs.each do |design| %>
-  <%= design.name %> created at <%= design.created_at %>
+<%= link_to "Dashboard", user_dashboard_index_path(current_user) %>
+<%= link_to "Contacts", user_contacts_path(current_user) %>
+<%= link_to "Log Out", logout_path, method: :delete %></br>
+
+
+All Designs:
+<ul>
+<% @designs.reverse.each do |design| %>
+  <li>
+  <%= link_to "#{design.name}", user_design_path(current_user, design) %> Posted <%= distance_of_time_in_words(Time.now, design.created_at) %> ago
+  <%= link_to "Edit", edit_user_design_path(current_user, design) %>
+  <%= link_to "Delete", user_design_path(current_user, design), method: :delete %>
+  </li>
 <% end %>
+</ul>
+
+<%= link_to "New Design", new_user_design_path(current_user) %>
