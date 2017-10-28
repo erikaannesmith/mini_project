@@ -1,0 +1,21 @@
+<%= link_to "Dashboard", user_dashboard_index_path(current_user) %>
+<%= link_to "Portfolio", user_designs_path(current_user) %>
+<%= link_to "Log Out", logout_path, method: :delete %>
+
+<h1>Contacts:</h1>
+<ul>
+<% @partnerships.each do |p| %>
+    <li>
+    <%= link_to "#{p.contact.contact_name} @ #{p.contact.company}", user_contact_path(current_user, p.contact) %>
+    <%= link_to "Delete", user_partnership_path(current_user, p), method: :delete%>
+    </li>
+<% end %>
+</ul>
+
+<%= form_for([current_user, @partnership]) do |f| %>
+
+    <%= f.label :contact %>
+     <%= f.collection_select :contact_id, Contact.all, :id, :contact_name %>
+     <%= f.submit "Create Partnership" %>
+
+<% end %>

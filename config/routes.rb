@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :dashboard, only: [:index]
-    resources :partnerships, only: [:create]
+    resources :partnerships, only: [:index, :show, :new, :create, :destroy]
     resources :contacts
     resources :designs
   end

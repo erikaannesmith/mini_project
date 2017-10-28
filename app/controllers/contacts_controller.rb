@@ -2,11 +2,15 @@ class ContactsController < ApplicationController
     def index
             @user = current_user
             @user_contacts = @user.contacts
-            @partnership = Partnership.new
+            @partnerships = @user.partnerships
     end
 
     def show
         @contact = Contact.find(params[:id])
+    end
+
+    def create
+        @partnership = Partnership.create(partnership_params)
     end
 
     private
@@ -14,5 +18,10 @@ class ContactsController < ApplicationController
     def contact_params
         params.require(:contact).permit(:company, :contact_name, :location, :phone_number, :email, :industry)
     end
+
+    def partnership_params
+        params.require(:partnership).permit(current_user, :contact)
+    end
+
 
 end

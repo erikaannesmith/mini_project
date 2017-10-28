@@ -1,0 +1,9 @@
+<%= link_to "Dashboard", user_dashboard_index_path(current_user) %>
+<%= link_to "Portfolio", user_designs_path(current_user) %>
+<%= link_to "Contacts", user_partnerships_path(current_user) %>
+<%= link_to "Log Out", logout_path, method: :delete %></br>
+
+
+New Design:
+
+<%= render partial: 'form' %>

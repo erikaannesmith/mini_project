@@ -1,3 +1,10 @@
+<%= link_to "Dashboard", user_dashboard_index_path(current_user) %>
+<%= link_to "Portfolio", user_designs_path(current_user) %>
+<%= link_to "Contacts", user_partnerships_path(current_user) %>
+
+<%= link_to "Log Out", logout_path, method: :delete %>
+
+
 <h1>Company: <%= @contact.company %></h1>
 
 Contact Name: <%= @contact.contact_name %>
