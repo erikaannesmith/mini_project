@@ -4,7 +4,10 @@
 <%= link_to "Log Out", logout_path, method: :delete %>
 
 <h1>All Partnerships:</h1>
+<ul>
 <% @partnerships.each do |partnership| %>
+    <li>
     <%= link_to "#{partnership.user.company_name}", admin_user_path(partnership.user) %> and <%= link_to "#{partnership.contact.company}", admin_contact_path(partnership.contact) %>    
+    </li>
 <% end %>
-
+</ul>

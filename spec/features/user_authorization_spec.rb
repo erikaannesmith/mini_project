@@ -90,19 +90,13 @@ describe "user authorization" do
 
         click_on "Contacts"
 
-        expect(current_path).to eq(user_contacts_path(@user))
+        expect(current_path).to eq(user_partnerships_path(@user))
         expect(page).to have_content("Cindy @ LuluLemon")
 
         click_on "Cindy @ LuluLemon"
 
         expect(current_path).to eq(user_contact_path(@user, contact))
         expect(page).to have_content("Company: LuluLemon")
-        
-        click_on "Contacts"
-
-        click_on "Create Partnership"
-        
-        expect(page).to have_link("y @ y")
     end
 
 
