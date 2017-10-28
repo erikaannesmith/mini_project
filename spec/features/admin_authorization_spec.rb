@@ -169,22 +169,15 @@ RSpec.describe "admin authorization" do
         expect(page).to have_link("All Contacts")
         expect(page).to have_link("Log Out")
         expect(page).to have_link("abc @ Yas")
-        expect(page).to have_link("Deactivate Designer")
 
         click_on "abc @ Yas"
 
         expect(current_path).to eq(admin_user_path(@user))
-        expect(page).to have_link("Deactivate Designer")
         expect(page).to have_link("Dashboard")
         expect(page).to have_link("All Partnerships")
         expect(page).to have_link("All Designers")
         expect(page).to have_link("All Contacts")
         expect(page).to have_link("Log Out")
-
-        click_on "Deactivate Designer"
-
-        expect(current_path).to eq(admin_users_path)
-        expect(page).not_to have_content("abc @ Yas")
     end
     
     scenario "admin can log out" do

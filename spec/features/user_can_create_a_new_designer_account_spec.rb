@@ -33,7 +33,7 @@ describe "User can create a new designer account" do
 
     click_on "Submit"
 
-    expect(current_path).to eq(user_path(User.last.id))
+    expect(current_path).to eq(user_dashboard_index_path(User.last.id))
   end
 
   scenario "user logs into their account" do
