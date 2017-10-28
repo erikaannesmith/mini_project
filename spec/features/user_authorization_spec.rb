@@ -92,13 +92,64 @@ describe "user authorization" do
 
         expect(current_path).to eq(user_partnerships_path(@user))
         expect(page).to have_content("Cindy @ LuluLemon")
+        expect(page).to have_link("Dashboard")
+        expect(page).to have_link("Portfolio")
+        expect(page).to have_link("Log Out")
 
         click_on "Cindy @ LuluLemon"
 
         expect(current_path).to eq(user_contact_path(@user, contact))
         expect(page).to have_content("Company: LuluLemon")
+        expect(page).to have_link("Dashboard")
+        expect(page).to have_link("Portfolio")
+        expect(page).to have_link("Contacts")
+        expect(page).to have_link("Log Out")
     end
 
+    scenario "user can delete a partnership" do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)      
+        contact = Contact.create(company: "x", 
+                       contact_name: "x",
+                       location: "x",
+                       email: "x",
+                       phone_number: "x",
+                       industry: "Manufacturer")
+        partnership = @user.partnerships.create(contact: contact)
 
+        visit user_partnerships_path(@user)
 
+        expect(page).to have_link("x @ x")
+        expect(@user.partnerships.count).to eq(1)
+        expect(page).to have_link("Delete")
+
+        click_on "Delete"
+
+        expect(@user.partnerships.count).to eq(0)        
+    end
+
+    scenario "user can view the contact show page" do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)      
+        contact = Contact.create(company: "x", 
+                       contact_name: "x",
+                       location: "x",
+                       email: "x",
+                       phone_number: "x",
+                       industry: "Manufacturer")
+        partnership = @user.partnerships.create(contact: contact)
+
+        visit user_partnerships_path(@user)
+
+        click_on "x @ x"
+
+        expect(current_path).to eq(user_contact_path(@user, contact))
+        expect(page).to have_link("Dashboard")
+        expect(page).to have_link("Contacts")
+        expect(page).to have_link("Portfolio")
+        expect(page).to have_link("Log Out")
+
+        click_on "Log Out"
+
+        expect(current_path).to eq(root_path)
+        expect(:current_user).not_to eq(@user)
+    end
 end
