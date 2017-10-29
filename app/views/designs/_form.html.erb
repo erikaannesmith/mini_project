@@ -1,6 +1,9 @@
-<%= form_for [current_user, @design] do |f| %>
+<%= form_for [current_user, @design], html: {multipart: true} do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
+
+    <%= f.label :image, "Upload Design" %>
+    <%= f.file_field :image %>
 
     <%= f.label :description %>
     <%= f.text_area :description %>
