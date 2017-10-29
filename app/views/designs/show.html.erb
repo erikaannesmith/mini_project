@@ -9,7 +9,7 @@ Design No. <%= @design.id %><br><br>
 <%= @design.description %><br><br>
 
 <div class = "design image">
-    <%= image_tag @design.image.url %>
+    <%= image_tag @design.image.url(:medium) %>
 </div><br>
 
 </br><%= link_to "Edit", edit_user_design_path(current_user, @design) %>
