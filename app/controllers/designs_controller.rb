@@ -47,7 +47,7 @@ class DesignsController < ApplicationController
   private
 
   def design_params
-    params.require(:design).permit(:name, :description)
+    params.require(:design).permit(:name, :description, :image)
   end
 
 end
