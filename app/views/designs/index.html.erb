@@ -3,7 +3,8 @@
 <%= link_to "Log Out", logout_path, method: :delete %></br>
 
 
-All Designs:
+<h1>Design Portfolio</h1>
+<%= link_to "New Design", new_user_design_path(current_user) %>
 <ul>
 <% @designs.reverse.each do |design| %>
   <li>
@@ -13,14 +14,14 @@ All Designs:
   <%= link_to "Delete", user_design_path(current_user, design), method: :delete %>
   
   <% if design.images.exists? %>
-    <br><% design.images.each do |image| %>
+    <br><br>
+    <% design.images.each do |image| %>
       <%= image_tag image.image.url, width: '100', height: 'auto' %>
     <% end %>
+    <br><br>
   <% end %>
   
   <br>
   </li>
 <% end %>
 </ul>
-
-<%= link_to "New Design", new_user_design_path(current_user) %>

@@ -1,1 +1,8 @@
-<h1></h1>
+<%= link_to "Dashboard", user_dashboard_index_path(current_user) %>
+<%= link_to "Portfolio", user_designs_path(current_user) %>
+<%= link_to "Contacts", user_partnerships_path(current_user) %>
+<%= link_to "Log Out", logout_path, method: :delete %></br><br>
+
+<h1><%= @image.design.name %></h1>
+<h3>Image No. <%= @image.id %></h3>
+<%= image_tag @image.image.url, height: '600<', width: 'auto' %>

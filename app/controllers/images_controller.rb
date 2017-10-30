@@ -20,12 +20,6 @@ class ImagesController < ApplicationController
         end
     end
 
-    def edit
-    end
-
-    def update
-    end
-
     def destroy
         @image = Image.find(params[:id])
         @image.destroy

@@ -1,17 +1,23 @@
 <%= form_for [current_user, @design] do |f| %>
-    <%= f.label :name %>
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
+    
+    <br><br>
 
-    <%= f.label :description %>
+    <%= f.label :description %><br>
     <%= f.text_area :description %>
+
+    <br><br>
 
     <% if !@design.images.empty? %>
         <% @design.images.each do |image| %>
-            <%= image_tag image.image.url, height: '200', width: 'auto' %>
+            <%= image_tag image.image.url, height: '200', width: 'auto' %><br>
             <%= link_to "Delete", user_design_image_path(current_user, @design, image), method: :delete%><br>
         <% end %>
     <% end %>
-
+    
+    <br>
+    
     <%= f.submit %>
 
 <% end %>
