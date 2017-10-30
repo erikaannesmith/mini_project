@@ -1,15 +1,17 @@
-<%= form_for [current_user, @design], html: {multipart: true} do |f| %>
+<%= form_for [current_user, @design] do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
-
-    <% if @design.image.exists? %>    
-        <% image_tag @design.image.url %>    
-    <% end %>
-    <%= f.label :image, "Upload a New Image" %>
-    <%= f.file_field :image %>
 
     <%= f.label :description %>
     <%= f.text_area :description %>
 
+    <% if !@design.images.empty? %>
+        <% @design.images.each do |image| %>
+            <%= image_tag image.image.url, height: '200', width: 'auto' %>
+            <%= link_to "Delete", user_design_image_path(current_user, @design, image), method: :delete%><br>
+        <% end %>
+    <% end %>
+
     <%= f.submit %>
+
 <% end %>

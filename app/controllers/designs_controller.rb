@@ -6,6 +6,7 @@ class DesignsController < ApplicationController
 
   def show
     @design = current_user.designs.find(params[:id])
+    @images = @design.images.all
   end
 
   def new
@@ -47,7 +48,7 @@ class DesignsController < ApplicationController
   private
 
   def design_params
-    params.require(:design).permit(:name, :description, :image)
+    params.require(:design).permit(:name, :description)
   end
 
 end

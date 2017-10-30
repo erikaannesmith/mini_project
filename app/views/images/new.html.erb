@@ -1,0 +1,12 @@
+<%= form_for [current_user, @design, @image], html: {multipart: true} do |f| %>
+    <%= f.label :image, "Upload a New Image" %><br>
+    <%= f.file_field :image %><br>
+    <%= f.submit "Save"%>
+<% end %>
+
+<br><br>
+
+<% @images.each do |image| %>
+    <%= image_tag image.image.url, height: '200', width: 'auto' %>
+    <%= link_to "Delete", user_design_image_path(current_user, @design, image), method: :delete%><br>
+<% end %>

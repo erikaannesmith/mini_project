@@ -9,8 +9,12 @@ Design No. <%= @design.id %><br><br>
 <%= @design.description %><br><br>
 
 <div class = "design image">
-    <%= image_tag @design.image.url(:medium) %>
+    <% @images.each do |image| %>
+        <%= link_to image_tag(image.image.url, width: '300', height: 'auto'), user_design_image_path(current_user, @design, image) %>
+    <% end %>
 </div><br>
 
+<%= link_to "Upload Image", new_user_design_image_path(current_user,@design) %>
+<br>
 </br><%= link_to "Edit", edit_user_design_path(current_user, @design) %>
 </br><%= link_to "Delete", user_design_path(current_user, @design), method: :delete %>
