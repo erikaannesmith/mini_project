@@ -1,9 +1,14 @@
-<%= link_to "Dashboard", admin_dashboard_index_path %>
-<%= link_to "All Contacts", admin_contacts_path %>
-<%= link_to "All Designers", admin_users_path %>
-<%= link_to "Log Out", logout_path, method: :delete %>
+<div class = "wrapper">
+<div class = "first-line">
 
-<h1>All Partnerships:</h1>
+<h1>Partnerships</h1>
+<nav>
+<%= link_to "Dashboard", admin_dashboard_index_path %>
+<%= link_to "Contacts", admin_contacts_path %>
+<%= link_to "Designers", admin_users_path %>
+<%= link_to "Log Out", logout_path, method: :delete %>
+</nav>
+</div>
 <ul>
 <% @partnerships.each do |partnership| %>
     <li>
@@ -11,3 +16,4 @@
     </li>
 <% end %>
 </ul>
+</div>

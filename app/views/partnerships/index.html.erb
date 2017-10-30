@@ -1,8 +1,12 @@
+<div class = "wrapper">
+<div class = "first-line">
+<h1>Contacts:</h1>
+<nav>
 <%= link_to "Dashboard", user_dashboard_index_path(current_user) %>
 <%= link_to "Portfolio", user_designs_path(current_user) %>
 <%= link_to "Log Out", logout_path, method: :delete %>
-
-<h1>Contacts:</h1>
+</nav>
+</div>
 <ul>
 <% @partnerships.each do |p| %>
     <li>
@@ -19,3 +23,4 @@
      <%= f.submit "Create Partnership" %>
 
 <% end %>
+</div>
