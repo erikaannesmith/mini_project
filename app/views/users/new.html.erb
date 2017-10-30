@@ -2,6 +2,8 @@
 <div class = "first-line">
 <h1>Register</h1>
 </div>
+<div class = "content">
+
 <%= form_for @user do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %><br/><br/>
@@ -20,4 +22,5 @@
 
   <%= f.submit "Submit" %>
 <% end %>
+</div>
 </div>

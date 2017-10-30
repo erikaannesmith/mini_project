@@ -12,6 +12,7 @@
 <%= link_to "Log Out", logout_path, method: :delete %>
 </nav>
 </div>
+<div class = "content">
 
 Contact Name: <%= @contact.contact_name %></br>
 
@@ -26,4 +27,5 @@ Industry: <%= @contact.industry %></br>
 <%= link_to "Edit", edit_admin_contact_path %>
 <%= link_to "Delete", admin_contact_path(@contact), method: "delete" %>
 
+</div>
 </div>
