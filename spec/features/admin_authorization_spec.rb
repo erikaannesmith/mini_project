@@ -163,7 +163,7 @@ RSpec.describe "admin authorization" do
     scenario "admin can see all designers" do
         visit admin_users_path
 
-        expect(page).to have_content("Designers:")
+        expect(page).to have_content("Designers")
         expect(page).to have_link("Dashboard")
         expect(page).to have_link("Partnerships")
         expect(page).to have_link("Contacts")
