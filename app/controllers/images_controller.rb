@@ -24,6 +24,8 @@ class ImagesController < ApplicationController
         @image = Image.find(params[:id])
         @image.destroy
         flash[:success] = "Image deleted!"
+
+        redirect_to user_design_path(current_user, @image.design)
     end
 
     private

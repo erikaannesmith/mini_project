@@ -8,13 +8,14 @@
     <%= f.text_area :description %>
 
     <br><br>
-
+    <div class = "images">
     <% if !@design.images.empty? %>
         <% @design.images.each do |image| %>
             <%= image_tag image.image.url, height: '200', width: 'auto' %><br>
             <%= link_to "Delete", user_design_image_path(current_user, @design, image), method: :delete%><br>
         <% end %>
     <% end %>
+    </div>
     
     <br>
     

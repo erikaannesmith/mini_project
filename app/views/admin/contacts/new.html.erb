@@ -1,29 +1,35 @@
-<%= link_to "Dashboard", admin_dashboard_index_path %>
-<%= link_to "All Partnerships", admin_partnerships_path %>
-<%= link_to "All Contacts", admin_contacts_path %>
-<%= link_to "All Designers", admin_users_path %>
-<%= link_to "Log Out", logout_path, method: :delete %>
+<div class = "wrapper">
+<div class = "first-line">
 
 <h1>New Contact</h1>
+<nav>
+<%= link_to "Dashboard", admin_dashboard_index_path %>
+<%= link_to "Partnerships", admin_partnerships_path %>
+<%= link_to "Contacts", admin_contacts_path %>
+<%= link_to "Designers", admin_users_path %>
+<%= link_to "Log Out", logout_path, method: :delete %>
+</nav>
+</div>
 
 <%= form_for(([@admin, @contact]), url: admin_contacts_path) do |f|%>
     <%= f.label :company %>
-    <%= f.text_field :company %> 
+    <%= f.text_field :company %> <br/><br/>
 
     <%= f.label :contact_name %>
-    <%= f.text_field :contact_name %>
+    <%= f.text_field :contact_name %><br/><br/>
 
     <%= f.label :location %>
-    <%= f.text_field :location %>
+    <%= f.text_field :location %><br/><br/>
 
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email %><br/><br/>
 
     <%= f.label :phone_number %>
-    <%= f.text_field :phone_number %>
+    <%= f.text_field :phone_number %><br/><br/>
 
     <%= f.label :industry %>
-    <%= f.select :industry, ["Manufacturer", "Retailer", "Buyer"] %>
+    <%= f.select :industry, ["Manufacturer", "Retailer", "Buyer"] %><br/><br/>
 
     <%= f.submit %>
 <% end %>
+</div>
