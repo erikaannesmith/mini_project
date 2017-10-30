@@ -1,18 +1,21 @@
-<%= link_to "Dashboard", user_dashboard_index_path(current_user) %>
-<%= link_to "Portfolio", user_designs_path(current_user) %>
-<%= link_to "Contacts", user_partnerships_path(current_user) %>
+<div class = "wrapper">
+    <div class = "first-line">
+        <h1><%= @contact.company %></h1>
+        <nav>
+            <%= link_to "Dashboard", user_dashboard_index_path(current_user) %>
+            <%= link_to "Portfolio", user_designs_path(current_user) %>
+            <%= link_to "Contacts", user_partnerships_path(current_user) %>
+            <%= link_to "Log Out", logout_path, method: :delete %>
+        </nav>
+    </div>
+</div>
 
-<%= link_to "Log Out", logout_path, method: :delete %>
+Contact Name: <strong><%= @contact.contact_name %></br></strong>
 
+Location: <strong><%= @contact.location %></br></strong>
 
-<h1>Company: <%= @contact.company %></h1>
+Phone Number: <strong><%= @contact.phone_number %></br></strong>
 
-Contact Name: <%= @contact.contact_name %>
+E-mail: <strong><%= @contact.email %></br></strong>
 
-Location: <%= @contact.location %>
-
-Phone Number: <%= @contact.phone_number %>
-
-E-mail: <%= @contact.email %>
-
-Industry: <%= @contact.industry %>
+Industry: <strong><%= @contact.industry %></br></strong>

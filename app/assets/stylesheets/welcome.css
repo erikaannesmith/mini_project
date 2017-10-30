@@ -44,3 +44,11 @@ a {
 .wrapper {
     width: 50%;
 }
+
+#design_name {
+    padding-left: 53px;
+}
+
+#design_description {
+    padding-left: 9px;
+}

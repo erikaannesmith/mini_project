@@ -1,15 +1,15 @@
 <%= form_for [current_user, @design], html: {multipart: true} do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name %></br></br>
+    
+    <%= f.label :description %>
+    <%= f.text_area :description %></br></br>
 
     <% if @design.image.exists? %>    
         <% image_tag @design.image.url %>    
     <% end %>
     <%= f.label :image, "Upload a New Image" %>
-    <%= f.file_field :image %>
-
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.file_field :image %></br></br>
 
     <%= f.submit %>
 <% end %>
