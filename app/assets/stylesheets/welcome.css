@@ -1,0 +1,47 @@
+h1 {
+    display: flex;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+a {
+    padding: 3px;
+    color: black;
+}
+
+.dash-index {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contact-index {
+    display: flex;
+    justify-content: space-around;
+}
+
+.new_partnership {
+    padding-top: 17px;
+}
+
+.new-des {
+    padding-left: 37px;
+}
+
+.edit_design {
+    display: flex;
+    flex-direction: column;
+}
+
+.first-line {
+    display: flex;
+    justify-content: space-between;   
+}
+
+.wrapper {
+    width: 50%;
+}
+

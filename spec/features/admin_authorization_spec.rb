@@ -51,9 +51,9 @@ RSpec.describe "admin authorization" do
 
         expect(current_path).to eq(admin_dashboard_index_path)
         expect(page).to have_content("Welcome, #{@admin_user.email}!")
-        expect(page).to have_link("All Partnerships")
-        expect(page).to have_link("All Contacts")
-        expect(page).to have_link("All Designers")
+        expect(page).to have_link("Partnerships")
+        expect(page).to have_link("Contacts")
+        expect(page).to have_link("Designers")
         expect(page).to have_link("Log Out")
     end
 
@@ -68,25 +68,25 @@ RSpec.describe "admin authorization" do
 
         partnership = Partnership.create!(user: @user, contact: @contact)
 
-        click_on "All Partnerships"
+        click_on "Partnerships"
 
         expect(current_path).to eq(admin_partnerships_path)
         expect(page).to have_content("#{partnership.user.company_name} and #{partnership.contact.company}")
         expect(page).to have_link("Dashboard")
-        expect(page).to have_link("All Contacts")
-        expect(page).to have_link("All Designers")
+        expect(page).to have_link("Contacts")
+        expect(page).to have_link("Designers")
         expect(page).to have_link("Log Out")
 
         click_on "#{partnership.user.company_name}"
 
         expect(current_path).to eq(admin_user_path(partnership.user))
         expect(page).to have_link("Dashboard")
-        expect(page).to have_link("All Partnerships")
-        expect(page).to have_link("All Contacts")
-        expect(page).to have_link("All Designers")
+        expect(page).to have_link("Partnerships")
+        expect(page).to have_link("Contacts")
+        expect(page).to have_link("Designers")
         expect(page).to have_link("Log Out")
 
-        click_on "All Partnerships"
+        click_on "Partnerships"
 
         expect(current_path).to eq(admin_partnerships_path)
 
@@ -95,9 +95,9 @@ RSpec.describe "admin authorization" do
         expect(current_path).to eq(admin_contact_path(partnership.contact))
         expect(page).to have_link("Dashboard")
         expect(page).to have_link("Edit")
-        expect(page).to have_link("All Partnerships")
-        expect(page).to have_link("All Contacts")
-        expect(page).to have_link("All Designers")
+        expect(page).to have_link("Partnerships")
+        expect(page).to have_link("Contacts")
+        expect(page).to have_link("Designers")
         expect(page).to have_link("Log Out")
 
         click_on "Edit"
@@ -117,8 +117,8 @@ RSpec.describe "admin authorization" do
         expect(page).to have_link("New Contact")
         expect(page).to have_link("Delete")
         expect(page).to have_link("Dashboard")
-        expect(page).to have_link("All Partnerships")
-        expect(page).to have_link("All Designers")
+        expect(page).to have_link("Partnerships")
+        expect(page).to have_link("Designers")
         expect(page).to have_link("Log Out")
 
         click_on "Delete"
@@ -134,9 +134,9 @@ RSpec.describe "admin authorization" do
 
         expect(current_path).to eq(new_admin_contact_path)
         expect(page).to have_link("Dashboard")
-        expect(page).to have_link("All Partnerships")
-        expect(page).to have_link("All Contacts")
-        expect(page).to have_link("All Designers")
+        expect(page).to have_link("Partnerships")
+        expect(page).to have_link("Contacts")
+        expect(page).to have_link("Designers")
         expect(page).to have_link("Log Out")
 
         fill_in "contact[company]", with: "a"
@@ -149,8 +149,8 @@ RSpec.describe "admin authorization" do
         expect(current_path).to eq(admin_contacts_path)
         expect(page).to have_content("b @ a")
         expect(page).to have_link("Dashboard")
-        expect(page).to have_link("All Partnerships")
-        expect(page).to have_link("All Designers")
+        expect(page).to have_link("Partnerships")
+        expect(page).to have_link("Designers")
         expect(page).to have_link("Log Out")
 
         click_on "b @ a"
@@ -163,10 +163,10 @@ RSpec.describe "admin authorization" do
     scenario "admin can see all designers" do
         visit admin_users_path
 
-        expect(page).to have_content("All Designers:")
+        expect(page).to have_content("Designers:")
         expect(page).to have_link("Dashboard")
-        expect(page).to have_link("All Partnerships")
-        expect(page).to have_link("All Contacts")
+        expect(page).to have_link("Partnerships")
+        expect(page).to have_link("Contacts")
         expect(page).to have_link("Log Out")
         expect(page).to have_link("abc @ Yas")
 
@@ -174,9 +174,9 @@ RSpec.describe "admin authorization" do
 
         expect(current_path).to eq(admin_user_path(@user))
         expect(page).to have_link("Dashboard")
-        expect(page).to have_link("All Partnerships")
-        expect(page).to have_link("All Designers")
-        expect(page).to have_link("All Contacts")
+        expect(page).to have_link("Partnerships")
+        expect(page).to have_link("Designers")
+        expect(page).to have_link("Contacts")
         expect(page).to have_link("Log Out")
     end
     

@@ -50,7 +50,7 @@ describe "user authorization" do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)        
         visit new_user_design_path(@user)
 
-        expect(page).to have_content("New Design:")
+        expect(page).to have_content("New Design")
         expect(page).to have_field("design[name]")
         expect(page).to have_field("design[description]")
         expect(page).to have_link("Dashboard")
@@ -99,7 +99,7 @@ describe "user authorization" do
         click_on "Cindy @ LuluLemon"
 
         expect(current_path).to eq(user_contact_path(@user, contact))
-        expect(page).to have_content("Company: LuluLemon")
+        expect(page).to have_content("LuluLemon")
         expect(page).to have_link("Dashboard")
         expect(page).to have_link("Portfolio")
         expect(page).to have_link("Contacts")

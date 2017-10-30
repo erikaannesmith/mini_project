@@ -1,16 +1,20 @@
+<div class = "wrapper">
+<div class = "first-line">
+<h1><%= @design.name %></h1>
+<nav>
 <%= link_to "Dashboard", user_dashboard_index_path(current_user) %>
 <%= link_to "Portfolio", user_designs_path(current_user) %>
 <%= link_to "Contacts", user_partnerships_path(current_user) %>
 <%= link_to "Log Out", logout_path, method: :delete %></br>
-
-
-<h1><%= @design.name %></h1>
-Design No. <%= @design.id %><br><br>
-<%= @design.description %><br><br>
+</nav>
+</div>
+Design No. <strong><%= @design.id %><br><br></strong>
+Description: <strong><%= @design.description %><br><br></strong>
 
 <div class = "design image">
-    <%= image_tag @design.image.url(:medium) %>
+    Image: <strong><%= image_tag @design.image.url(:medium) %></strong>
 </div><br>
 
 </br><%= link_to "Edit", edit_user_design_path(current_user, @design) %>
 </br><%= link_to "Delete", user_design_path(current_user, @design), method: :delete %>
+</div>

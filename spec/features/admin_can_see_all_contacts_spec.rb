@@ -14,7 +14,7 @@ RSpec.describe "When user visits admin contacts index" do
 
             visit admin_contacts_path
 
-            expect(page).to have_content("All Contacts")
+            expect(page).to have_content("Contacts")
         end
     end
 

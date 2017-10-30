@@ -1,11 +1,16 @@
-<%= link_to "Dashboard", admin_dashboard_index_path %>
-<%= link_to "All Partnerships", admin_partnerships_path %>
-<%= link_to "All Contacts", admin_contacts_path %>
-<%= link_to "All Designers", admin_users_path %>
-<%= link_to "Log Out", logout_path, method: :delete %>
-</br></br>
+<div class = "wrapper">
+<div class = "first-line">
 
-<h1>Company: <%= @user.company_name %></h1></br>
+<h1><%= @user.company_name %></h1></br>
+<nav>
+<%= link_to "Dashboard", admin_dashboard_index_path %>
+<%= link_to "Partnerships", admin_partnerships_path %>
+<%= link_to "Contacts", admin_contacts_path %>
+<%= link_to "Designers", admin_users_path %>
+<%= link_to "Log Out", logout_path, method: :delete %>
+</nav>
+</div>
+
 
 Email: <%= @user.email %></br>
 
@@ -13,3 +18,4 @@ Location: <%= @user.location %></br>
 
 Website: <%= @user.website %></br>
 
+</div>
