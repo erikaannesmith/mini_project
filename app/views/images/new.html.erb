@@ -1,0 +1,17 @@
+<%= link_to "Dashboard", user_dashboard_index_path(current_user) %>
+<%= link_to "Portfolio", user_designs_path(current_user) %>
+<%= link_to "Contacts", user_partnerships_path(current_user) %>
+<%= link_to "Log Out", logout_path, method: :delete %></br>
+
+<%= form_for [current_user, @design, @image], html: {multipart: true} do |f| %>
+    <h1><%= f.label :image, "Upload a New Image" %></h1>
+    <%= f.file_field :image %><br><br>
+    <%= f.submit "Save"%>
+<% end %>
+
+<br><br>
+
+<% @images.each do |image| %>
+    <%= image_tag image.image.url, height: '200', width: 'auto' %><br>
+    <%= link_to "Delete", user_design_image_path(current_user, @design, image), method: :delete%><br><br>
+<% end %>

@@ -14,13 +14,21 @@
     Posted <%= distance_of_time_in_words(Time.now, design.created_at) %> ago
     <%= link_to "Edit", edit_user_design_path(current_user, design) %>
     <%= link_to "Delete", user_design_path(current_user, design), method: :delete %>
-    <% if design.image.exists? %>
-      <br><%= image_tag design.image.url, width: '100', height: 'auto' %>
+    
+    
+      <% if design.images.exists? %>
+    <br><br>
+    <% design.images.each do |image| %>
+      <%= image_tag image.image.url, width: '100', height: 'auto' %>
     <% end %>
-    <br>
+    <br><br>
+  <% end %>
+
+    
     </li>
   <% end %>
   </ul>
+
   <div class = "new-des">
     <%= link_to "New Design", new_user_design_path(current_user) %>
   </div>
