@@ -1,11 +1,17 @@
-<%= link_to "Dashboard", admin_dashboard_index_path %>
-<%= link_to "All Partnerships", admin_partnerships_path %>
-<%= link_to "All Contacts", admin_contacts_path %>
-<%= link_to "All Designers", admin_users_path %>
-<%= link_to "Log Out", logout_path, method: :delete %>
-</br></br>
+<div class = "wrapper">
+<div class = "first-line">
 
-<h1>Company: <%= @contact.company %></h1></br>
+
+
+<h1><%= @contact.company %></h1></br>
+<nav>
+<%= link_to "Dashboard", admin_dashboard_index_path %>
+<%= link_to "Partnerships", admin_partnerships_path %>
+<%= link_to "Contacts", admin_contacts_path %>
+<%= link_to "Designers", admin_users_path %>
+<%= link_to "Log Out", logout_path, method: :delete %>
+</nav>
+</div>
 
 Contact Name: <%= @contact.contact_name %></br>
 
@@ -20,3 +26,4 @@ Industry: <%= @contact.industry %></br>
 <%= link_to "Edit", edit_admin_contact_path %>
 <%= link_to "Delete", admin_contact_path(@contact), method: "delete" %>
 
+</div>

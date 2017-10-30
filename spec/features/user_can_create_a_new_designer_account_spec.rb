@@ -12,7 +12,7 @@ describe "User can create a new designer account" do
 
     expect(current_path).to eq(new_user_path)
 
-    expect(page).to have_content("Register:")
+    expect(page).to have_content("Register")
     expect(page).to have_field("user[email]")
     expect(page).to have_field("user[password]")
     expect(page).to have_field("user[company_name]")
