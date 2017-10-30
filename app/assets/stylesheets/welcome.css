@@ -1,6 +1,7 @@
 h1 {
     display: flex;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    padding-left: 63px;
 }
 
 nav {
@@ -16,11 +17,6 @@ a {
 .dash-index {
     display: flex;
     justify-content: space-evenly;
-}
-
-.contact-index {
-    display: flex;
-    justify-content: space-around;
 }
 
 .new_partnership {
@@ -41,7 +37,32 @@ a {
     justify-content: space-between;   
 }
 
-.wrapper {
-    width: 50%;
+.dash {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
+.login {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact-index {
+    display: grid;
+}
+
+.new-contact {
+    padding-left: 40px;
+}
+
+#dash-index {
+    padding-right: 63px;
+}

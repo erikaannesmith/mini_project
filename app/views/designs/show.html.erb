@@ -8,6 +8,8 @@
 <%= link_to "Log Out", logout_path, method: :delete %></br>
 </nav>
 </div>
+<div class = "content">
+
 Design No. <strong><%= @design.id %><br><br></strong>
 Description: <strong><%= @design.description %><br><br></strong>
 
@@ -21,4 +23,5 @@ Description: <strong><%= @design.description %><br><br></strong>
 <br>
 </br><%= link_to "Edit", edit_user_design_path(current_user, @design) %>
 </br><%= link_to "Delete", user_design_path(current_user, @design), method: :delete %>
+</div>
 </div>

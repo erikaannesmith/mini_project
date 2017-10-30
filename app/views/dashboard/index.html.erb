@@ -1,6 +1,8 @@
 <h1>Welcome, <%= current_user.email %>!</h1>
 
+<div class = "content">
 
     <p><%= link_to "Portfolio", user_designs_path(current_user) %></p>
     <p><%= link_to "Contacts", user_partnerships_path(current_user) %></p>
     <p><%= link_to "Log Out", logout_path, method: :delete %></p>
+</div>
