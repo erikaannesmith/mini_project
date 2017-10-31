@@ -1,24 +1,29 @@
-# README
+# Designer Dashboard
+This program is intended for use by designers as a means of managing portfolio designs with images and creating partnerships with admin created industry contacts. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
+### Prerequisites
 
-* Ruby version
+Run this program on the latest version of Rails.
 
-* System dependencies
+This program is dependent on ImageMagick to render images to the server properly.
 
-* Configuration
+Setup terminal commands for ImageMagick:
+```brew install imagemagick```
 
-* Database creation
+Setup environment with:
+```bundle install```
 
-* Database initialization
+### Prepping the Database
 
-* How to run the test suite
+To run migration and create database: ```rails db:setup```.
 
-* Services (job queues, cache servers, search engines, etc.)
+### Running Tests
 
-* Deployment instructions
+Program runs on the latest version of RSpec.
+To run test suite, in your terminal: ```rspec```
 
-* ...
+### Deployment
+
+To deploy to server run: ```rails s``` and load url: ```localhost:3000``` in browser.
